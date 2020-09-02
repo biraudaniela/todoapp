@@ -26,6 +26,7 @@
     <table>
         <thead>
         <tr>
+            <td>Todo id</td>
             <td>Description</td>
             <td>Target Date</td>
             <td>Action</td>
@@ -33,13 +34,14 @@
         </thead>
         <tbody>
         <tr th:each="s : ${todos}">
+            <td th:text="${s.todoId}"></td>
             <td th:text="${s.description}"></td>
             <td th:text="${s.targetDate}"></td>
             <td>
-                <a th:href="@{/edittodo/{id}(id = ${s.id})}">
+                <a th:href="@{/edittodo/{id}(id = ${s.todoId})}">
                     <i class="small material-icons">edit</i>
                 </a>
-                <a th:href="@{/deletetodo/{id}(id = ${s.id})}">
+                <a th:href="@{/deletetodo/{id}(id = ${s.todoId})}">
                     <i class="small material-icons">delete</i>
                 </a>
 <!--                <a th:href="@{/group/{id}/students(id = ${s.groupId})}">-->

@@ -11,12 +11,12 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "todos")
+//@Table(name = "todos")
 public class Todo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int todoId;
 
 	//private String userName;
 

@@ -30,13 +30,13 @@
 </head>
 <body>
 <div class="row">
-    <form class="col s12" th:action="@{/edittodo/{id}(id=${todo.id})}" th:object="${todo}" method="post">
+    <form class="col s12" th:action="@{/edittodo/{id}(id=${todo.todoId})}" th:object="${todo}" method="post">
         <div class="container">
             <h1>Edit todo</h1>
             <p>Please fill in this form to edit a todo.</p>
             <hr>
             <div class="row">
-                <input th:field="*{id}" type="hidden">
+                <input th:field="*{todoId}" type="hidden">
                 <div class="input-field col s12">
                     <label for="description"><b>Description</b></label>
                     <input th:field="*{description}" id="description" type="text" placeholder="description" required>
