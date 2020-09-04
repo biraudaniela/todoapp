@@ -41,7 +41,7 @@ public class TodoController {
     public String editTodo(Model model, @PathVariable Integer id) {
         Todo todo = todoService.findById(id);
         model.addAttribute("todo", todo); // initial bind with the form, to say to the webpage
-        model.addAttribute("todo", todoService.findAll());
+        //model.addAttribute("todos", todoService.findAll());
         return "todo/edittodo";
     }
 
@@ -49,12 +49,12 @@ public class TodoController {
     public String editTodo(@ModelAttribute Todo todo, @PathVariable Integer id) {
         System.out.println(todo);
         todoService.save(todo); // save it again. SAVE acts as UPDATE
-        return "redirect:/alltodos";
+        return "redirect:/showalltodos";
     }
 
     @GetMapping("/deletetodo/{id}")
     public String deleteTodo(@PathVariable Integer id) {
         todoService.deleteById(id);
-        return "redirect:/alltodos";
+        return "redirect:/showalltodos";
     }
 }

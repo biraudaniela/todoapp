@@ -1,7 +1,9 @@
-<nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
+<nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org" class="nav blue darken-4">
     <div class="nav-wrapper">
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <a href="#" class="brand-logo">ToDo List</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
             <li><a th:href="@{/showalltodos}">Todos</a></li>
             <li><a th:href="@{/logout}">Logout</a></li>
         </ul>
