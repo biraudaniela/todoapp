@@ -22,7 +22,7 @@ public class TodoController {
     public String showAllTodos(Model model) {
         List<Todo> todos = todoService.findAll();
         model.addAttribute("todos", todos);
-        return "/todo/showalltodos";
+        return "todo/showalltodos";
     }
 
     @GetMapping("/addtodo")
