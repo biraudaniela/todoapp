@@ -1,4 +1,4 @@
-package config;
+package com.dabi.todoapp.config;
 
 import com.dabi.todoapp.model.User;
 import lombok.AllArgsConstructor;

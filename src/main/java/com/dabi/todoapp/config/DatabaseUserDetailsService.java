@@ -1,4 +1,6 @@
-package config;
+package com.dabi.todoapp.config;
+
+
 
 import com.dabi.todoapp.model.PendingUser;
 import com.dabi.todoapp.model.User;
@@ -12,10 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Optional;
-
-import static org.springframework.security.core.userdetails.User.withUsername;
 
 @Component
 @Getter
