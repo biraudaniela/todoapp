@@ -18,7 +18,7 @@ public class Todo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int todoId;
 
-	//private String userName;
+	private String userName;
 
 	private String description;
 

@@ -1,4 +1,4 @@
-package com.dabi.todoapp.config;
+package config;
 
 import com.dabi.todoapp.model.PendingUser;
 import com.dabi.todoapp.model.User;
@@ -24,8 +24,8 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;
 
-    @Autowired
-    private JwtProvider jwtProvider;
+//    @Autowired
+//    private JwtProvider jwtProvider;
 
     @Autowired
     private PendingUserRepository pendingUserRepository;
@@ -49,19 +49,19 @@ public class DatabaseUserDetailsService implements UserDetailsService {
         return new CustomUserDetails(user);
     }
 
-    public Optional<UserDetails> loadUserByJwtToken(String jwtToken) {
-
-        if(jwtProvider.isTokenValid(jwtToken)) {
-            return Optional.of(
-                    withUsername(jwtProvider.getUsername(jwtToken))
-                    .password("") // password should not be empty
-                    .authorities(new ArrayList<>())
-                    .accountExpired(false)
-                    .accountLocked(false)
-                    .credentialsExpired(false)
-                    .disabled(false)
-                    .build());
-        }
-        return Optional.empty();
-    }
+//    public Optional<UserDetails> loadUserByJwtToken(String jwtToken) {
+//
+//        if(jwtProvider.isTokenValid(jwtToken)) {
+//            return Optional.of(
+//                    withUsername(jwtProvider.getUsername(jwtToken))
+//                    .password("") // password should not be empty
+//                    .authorities(new ArrayList<>())
+//                    .accountExpired(false)
+//                    .accountLocked(false)
+//                    .credentialsExpired(false)
+//                    .disabled(false)
+//                    .build());
+//        }
+//        return Optional.empty();
+//    }
 }

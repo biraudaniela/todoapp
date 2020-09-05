@@ -1,4 +1,5 @@
-package com.dabi.todoapp.config;
+package config;
+
 import com.dabi.todoapp.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
