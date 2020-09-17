@@ -68,6 +68,7 @@ public class SecurityConfig {
                     .antMatchers("/register").permitAll()
                     .antMatchers("/userValidation").permitAll()
                     .antMatchers("/").permitAll()
+                    .antMatchers("/resources/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     .formLogin()
@@ -77,6 +78,7 @@ public class SecurityConfig {
                     .logoutUrl("/logout")
                     .logoutSuccessUrl("/")
                     .permitAll();
+
         }
 
         @Override
