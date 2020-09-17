@@ -70,6 +70,7 @@ public class SecurityConfig {
                     .antMatchers("/").permitAll()
                     .antMatchers("/images/**").permitAll()
                     .antMatchers("/css/**").permitAll()
+                    .antMatchers("/js/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     .formLogin()
