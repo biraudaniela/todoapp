@@ -1,41 +1,78 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Login</title>-->
+<!--    &lt;!&ndash; Compiled and minified CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+
+<!--    &lt;!&ndash; Compiled and minified JavaScript &ndash;&gt;-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+<!--    <nav th:insert="_menu.html::menu_nav"></nav>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="col s12 m7">-->
+
+<!--    <div class="card horizontal">-->
+<!--        <div class="card-image">-->
+<!--            <img src="background.png" alt="background.png" width="600" height="600">-->
+<!--        </div>-->
+<!--        <div class="card-stacked">-->
+<!--            <div class="card-content">-->
+<!--                <div class="form">-->
+<!--                    <h1>Login</h1>-->
+<!--                    <form th:action="@{/login}" method="post">-->
+<!--                        <label for="username">Username</label>-->
+<!--                        <input type="text" id="username" name="username" required>-->
+<!--                        <label for="password">Password</label>-->
+<!--                        <input type="password" id="password" name="password" required>-->
+
+<!--                        <button type="submit" value="Login">Login</button>-->
+<!--                        <p>Not registered?-->
+<!--                            <a th:href="@{/register}">Register</a>-->
+<!--                        </p>-->
+
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <nav th:insert="_menu.html::menu_nav"></nav>
+    <style>
+body {
+  background-image: url('blue.jpg');
+}
+    </style>
 </head>
 <body>
-<div class="col s12 m7">
-
-    <div class="card horizontal">
-        <div class="card-image">
-            <img src="background.png" alt="background.png" width="600" height="600">
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <div class="form">
-                    <h1>Login</h1>
-                    <form th:action="@{/login}" method="post">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
-
-                        <button type="submit" value="Login">Login</button>
-                        <p>Not registered?
-                            <a th:href="@{/register}">Register</a>
-                        </p>
-
-                    </form>
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <div class="form">
+        <span class="white-text"/>
+        <h1>Login</h1>
+        <form th:action="@{/login}" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <p></p>
+            <button type="submit" value="Login" class="waves-effect waves-light btn-small">
+                <i class="material-icons left">send</i>Login</button>
+            <p>Not registered?
+                <a th:href="@{/register}">Register</a>
+            </p>
+        </form>
     </div>
 </div>
 </body>

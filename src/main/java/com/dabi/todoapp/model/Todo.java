@@ -22,5 +22,5 @@ public class Todo {
 
 	private String description;
 
-	private Date targetDate;
+//	private Date targetDate;
 }

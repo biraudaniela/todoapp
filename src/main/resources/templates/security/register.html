@@ -1,44 +1,86 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Register</title>-->
+<!--    &lt;!&ndash; Compiled and minified CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+
+<!--    &lt;!&ndash; Compiled and minified JavaScript &ndash;&gt;-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<div class="card horizontal">-->
+<!--    <div class="card-image">-->
+<!--        <img src="background.png" alt="background.png" width="600" height="600">-->
+<!--    </div>-->
+<!--    <div class="card-stacked">-->
+<!--        <div class="card-content">-->
+<!--            <div class="form">-->
+<!--                <h1>Register</h1>-->
+<!--                <div class="form">-->
+<!--                    <form th:action="@{/register}" method="post">-->
+<!--                        <label for="username">Username</label>-->
+<!--                        <input type="text" id="username" name="username" required>-->
+
+<!--                        <label for="password">Password</label>-->
+<!--                        <input type="password" id="password" name="password" required>-->
+
+<!--                        <label for="emailAddress">Email</label>-->
+<!--                        <input type="email" id="emailAddress" name="emailAddress" required>-->
+
+<!--                        <button type="submit" value="Register">Register</button>-->
+<!--                        <p>Already registered?-->
+<!--                            <a th:href="@{/login}">Login</a>-->
+<!--                        </p>-->
+
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <nav th:insert="_menu.html::menu_nav"></nav>
+    <style>
+body {
+  background-image: url('blue.jpg');
+  }
+    </style>
 </head>
 <body>
-<div class="card horizontal">
-    <div class="card-image">
-        <img src="background.png" alt="background.png" width="600" height="600">
-    </div>
-    <div class="card-stacked">
-        <div class="card-content">
-            <div class="form">
-                <h1>Register</h1>
-                <div class="form">
-                    <form th:action="@{/register}" method="post">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
+<div class="container">
+    <div class="form">
+        <span class="white-text"/>
+        <h1>Register</h1>
+        <form th:action="@{/register}" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
 
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
 
-                        <label for="emailAddress">Email</label>
-                        <input type="email" id="emailAddress" name="emailAddress" required>
-
-                        <button type="submit" value="Register">Register</button>
-                        <p>Already registered?
-                            <a th:href="@{/login}">Login</a>
-                        </p>
-
-                    </form>
-                </div>
-            </div>
-        </div>
+            <label for="emailAddress">Email</label>
+            <input type="email" id="emailAddress" name="emailAddress" required>
+            <p></p>
+            <button type="submit" value="Register" class="waves-effect waves-light btn-small">
+                <i class="material-icons left">send</i>Register</button>
+            </button>
+            <p>Already registered?
+                <a th:href="@{/login}">Login</a>
+            </p>
+        </form>
     </div>
 </div>
 </body>

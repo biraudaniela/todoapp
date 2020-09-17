@@ -1,3 +1,59 @@
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash;Import Google Icon Font&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash; Compiled and minified CSS &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    &lt;!&ndash; Compiled and minified JavaScript &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    &lt;!&ndash;Let browser know website is optimized for mobile&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Todo view</title>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <nav th:insert="_menu.html::menu_nav">&ndash;&gt;-->
+<!--&lt;!&ndash;    </nav>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;    <h1>List of Todo's</s></h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    <a th:href="@{/addtodo}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="small material-icons">add</i>&ndash;&gt;-->
+<!--&lt;!&ndash;    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;    <table>&ndash;&gt;-->
+<!--&lt;!&ndash;        <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>Todo id</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>Description</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>Target Date</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>Action</td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        </thead>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr th:each="s : ${todos}">&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${s.todoId}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${s.description}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text="${s.targetDate}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a th:href="@{/edittodo/{id}(id = ${s.todoId})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="small material-icons">edit</i>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a th:href="@{/deletetodo/{id}(id = ${s.todoId})}">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <i class="small material-icons">delete</i>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <a th:href="@{/group/{id}/students(id = ${s.groupId})}">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <i class="small material-icons">center_focus_strong</i>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            </td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;    </table>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
 <!--<!DOCTYPE html>-->
 <!--<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">-->
 <!--<head>-->
@@ -44,9 +100,6 @@
 <!--                <a th:href="@{/deletetodo/{id}(id = ${s.todoId})}">-->
 <!--                    <i class="small material-icons">delete</i>-->
 <!--                </a>-->
-<!--&lt;!&ndash;                <a th:href="@{/group/{id}/students(id = ${s.groupId})}">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <i class="small material-icons">center_focus_strong</i>&ndash;&gt;-->
-<!--&lt;!&ndash;                </a>&ndash;&gt;-->
 <!--            </td>-->
 <!--        </tr>-->
 <!--        </tbody>-->
@@ -57,42 +110,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
     <title>Todo view</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/todosboot.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <nav th:insert="_menu.html::menu_nav"></nav>
+    <style>
+body {
+  background-image: url('blue.jpg');
+}
 
-    <nav th:insert="_menu.html::menu_nav">
-    </nav>
+    </style>
 </head>
 <body>
 <div class="container">
+    <span class="white-text"/>
     <h1>List of Todo's</s></h1>
     <a th:href="@{/addtodo}">
-        <i class="small material-icons">add</i>
-    </a>
+        <i class="small material-icons">add</i></a>
     <table>
         <thead>
         <tr>
-            <td>Todo id</td>
             <td>Description</td>
-            <td>Target Date</td>
             <td>Action</td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="s : ${todos}">
-            <td th:text="${s.todoId}"></td>
-            <td th:text="${s.description}"></td>
-            <td th:text="${s.targetDate}"></td>
+        <script>
+function checkFunction() {
+  document.getElementById("demo").innerHTML = "";
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.display = "block";
+ } else {
+    text.style.display = "none";
+ }
+}
+        </script>
+        <tr th:each="s : ${todos}" class="d-flex align-items-center label-text">
+            <td>
+                <label>
+                    <input name="group" type="checkbox"/>
+                    <span>[[${s.description}]]</span>
+                </label></td>
             <td>
                 <a th:href="@{/edittodo/{id}(id = ${s.todoId})}">
                     <i class="small material-icons">edit</i>
