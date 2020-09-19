@@ -1,6 +1,8 @@
 package com.dabi.todoapp.controller;
 
 import com.dabi.todoapp.model.Todo;
+import com.dabi.todoapp.model.User;
+import com.dabi.todoapp.repository.UserRepository;
 import com.dabi.todoapp.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -17,10 +20,13 @@ public class TodoController {
 
     @Autowired
     private TodoService todoService;
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("showalltodos")
-    public String showAllTodos(Model model) {
-        List<Todo> todos = todoService.findAll();
+    public String showAllTodos(Model model, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName()).get();
+        List<Todo> todos = todoService.findAllByUser(user.getUserId());
         model.addAttribute("todos", todos);
         return "todo/showalltodos";
     }

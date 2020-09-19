@@ -14,13 +14,14 @@ import java.sql.Date;
 //@Table(name = "todos")
 public class Todo {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int todoId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int todoId;
 
-	private String userName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
-	private String description;
+    private String description;
 
 //	private Date targetDate;
 }

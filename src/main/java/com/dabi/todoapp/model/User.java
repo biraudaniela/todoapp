@@ -30,6 +30,6 @@ public class User {
     @OneToOne(mappedBy = "user")
     private PendingUser pendingUser;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Todo> todoList;
 }

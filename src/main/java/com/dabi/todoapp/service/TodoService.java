@@ -34,5 +34,8 @@ public class TodoService {
     public void deleteById(Integer id) {
         todoRepository.deleteById(id);
     }
+    public List<Todo> findAllByUser(Integer id) {
+        return todoRepository.findByUserId(id);
+    }
 }
 
