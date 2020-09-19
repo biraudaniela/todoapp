@@ -41,7 +41,9 @@ public class TodoController {
     }
 
     @PostMapping("/addtodo")
-    public String addTodo(@ModelAttribute Todo todo) {
+    public String addTodo(@ModelAttribute Todo todo, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName()).get();
+        todo.setUser(user);
         todoService.save(todo);
         return "redirect:/showalltodos";
     }
