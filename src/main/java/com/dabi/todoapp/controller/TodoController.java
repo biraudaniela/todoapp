@@ -5,6 +5,7 @@ import com.dabi.todoapp.model.User;
 import com.dabi.todoapp.repository.UserRepository;
 import com.dabi.todoapp.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,9 @@ public class TodoController {
     private UserRepository userRepository;
 
     @GetMapping("showalltodos")
-    public String showAllTodos(Model model, Principal principal) {
+    public String showAllTodos(Model model, Principal principal, Authentication authentication) {
+        System.out.println(principal.getName());
+        System.out.println(authentication.getName());
         User user = userRepository.findByUsername(principal.getName()).get();
         List<Todo> todos = todoService.findAllByUser(user.getUserId());
         model.addAttribute("todos", todos);
