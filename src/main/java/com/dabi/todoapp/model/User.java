@@ -29,7 +29,7 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private PendingUser pendingUser;
-//
-//    @OneToMany
-//    private List<Todo> todoList;
+
+    @OneToMany
+    private List<Todo> todoList;
 }
