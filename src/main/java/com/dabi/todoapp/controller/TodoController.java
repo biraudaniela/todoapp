@@ -60,6 +60,7 @@ public class TodoController {
     public String editTodo(@ModelAttribute Todo todo, @PathVariable Integer id) {
         System.out.println(todo);
         todoService.save(todo); // save it again. SAVE acts as UPDATE
+        todoService.deleteById(id);
         return "redirect:/showalltodos";
     }
 
