@@ -11,12 +11,6 @@ import java.util.Collection;
 public class CustomUserDetails implements UserDetails {
 
     private User user;
-
-    //commented out because of lombok. Constructor used to pass user to this class
-//    public CustomUserDetails(User user) {
-//        this.user = user;
-//    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

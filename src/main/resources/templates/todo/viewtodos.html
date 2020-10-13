@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo view</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/css/todosboot.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <nav th:insert="_menu.html::menu_nav"></nav>
+    <style>
+body {
+  background-image: url('/blue.jpg');
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <span class="white-text"/>
+    <h1>Todos</s></h1>
+    <a th:href="@{/addtodo}">
+        <i class="medium material-icons">add_box</i></a>
+    <table>
+        <thead>
+        <tr>
+            <td>Description</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <script>
+function checkFunction() {
+  document.getElementById("demo").innerHTML = "";
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.display = "block";
+ } else {
+    text.style.display = "none";
+ }
+}
+        </script>
+        <tr th:each="s : ${todos}" class="d-flex align-items-center label-text">
+            <td>
+                <label>
+                    <input name="group" type="checkbox"/>
+                    <span>[[${s.description}]]</span>
+                </label></td>
+            <td>
+                <a th:href="@{/edittodo/{id}(id = ${s.todoId})}">
+                    <i class="small material-icons">edit</i>
+                </a>
+                <a th:href="@{/deletetodo/{id}(id = ${s.todoId})}">
+                    <i class="small material-icons">delete</i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
