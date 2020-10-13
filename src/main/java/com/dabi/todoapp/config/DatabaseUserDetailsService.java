@@ -23,9 +23,6 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;
 
-//    @Autowired
-//    private JwtProvider jwtProvider;
-
     @Autowired
     private PendingUserRepository pendingUserRepository;
 
@@ -47,20 +44,4 @@ public class DatabaseUserDetailsService implements UserDetailsService {
                 .orElseThrow(()-> new UsernameNotFoundException(username));
         return new CustomUserDetails(user);
     }
-
-//    public Optional<UserDetails> loadUserByJwtToken(String jwtToken) {
-//
-//        if(jwtProvider.isTokenValid(jwtToken)) {
-//            return Optional.of(
-//                    withUsername(jwtProvider.getUsername(jwtToken))
-//                    .password("") // password should not be empty
-//                    .authorities(new ArrayList<>())
-//                    .accountExpired(false)
-//                    .accountLocked(false)
-//                    .credentialsExpired(false)
-//                    .disabled(false)
-//                    .build());
-//        }
-//        return Optional.empty();
-//    }
 }

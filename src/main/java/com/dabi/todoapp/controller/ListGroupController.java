@@ -1,8 +1,12 @@
 package com.dabi.todoapp.controller;
 
 import com.dabi.todoapp.model.ListGroup;
+import com.dabi.todoapp.model.Todo;
+import com.dabi.todoapp.model.User;
+import com.dabi.todoapp.repository.UserRepository;
 import com.dabi.todoapp.service.ListGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.security.Principal;
 
 @Controller
 public class ListGroupController {
@@ -18,11 +23,17 @@ public class ListGroupController {
     @Autowired
     private ListGroupService listGroupService;
 
-
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("listtodo")
-    public String showAllGroups(Model model) {
-        List<ListGroup> listGroups = listGroupService.findAll();
+    public String showAllGroups(Model model, Principal principal, Authentication authentication) {
+        System.out.println(principal.getName());
+        System.out.println(authentication.getName());
+
+        User user = userRepository.findByUsername(principal.getName()).get();
+
+        List<ListGroup> listGroups = listGroupService.findAllByUser(user.getUserId());
 
         model.addAttribute("listgroups", listGroups);
 
@@ -38,10 +49,11 @@ public class ListGroupController {
     }
 
     @PostMapping("/addlistgroup")
-    public String addListGroup(@ModelAttribute ListGroup listGroup) {
-       listGroupService.save(listGroup);
+    public String addListGroup(@ModelAttribute ListGroup listGroup, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName()).get();
+        listGroup.setUser(user);
+        listGroupService.save(listGroup);
         return "redirect:/listtodo";
-        //TODO: show in same page on the left all students, on the right add a new student
     }
 
     @GetMapping("/group/{id}/todos")
@@ -49,6 +61,7 @@ public class ListGroupController {
         model.addAttribute("todos", listGroupService.findTodosByGroup(id));
         return "todo/viewtodos";
     }
+
     @GetMapping("/deletelistgroup/{id}")
     public String deleteListGroup(@PathVariable Integer id) {
         listGroupService.deleteById(id);

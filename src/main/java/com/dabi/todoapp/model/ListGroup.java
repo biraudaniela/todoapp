@@ -12,13 +12,16 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 public class ListGroup {
+
     private String groupName;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int groupId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+
     @OneToMany(mappedBy = "listGroup", cascade = CascadeType.ALL)
     private List<Todo> todos;
-
 }

@@ -1,5 +1,6 @@
 package com.dabi.todoapp;
 
+import com.dabi.todoapp.repository.ListGroupRepository;
 import com.dabi.todoapp.repository.TodoRepository;
 import com.dabi.todoapp.repository.UserRepository;
 import com.dabi.todoapp.service.SendGridEmailService;
@@ -13,6 +14,9 @@ public class TodoappApplication implements CommandLineRunner {
 
 	@Autowired
 	private TodoRepository todoRepository;
+
+	@Autowired
+	private ListGroupRepository listGroupRepository;
 
 	@Autowired
 	private UserRepository userRepository;

@@ -22,6 +22,7 @@ public class TodoService {
     public void save(Todo todo) {
         todoRepository.save(todo);
     }
+
     public Todo findById(Integer id) {
         Optional<Todo> todo = todoRepository.findById(id);
         if (todo.isPresent()) {
@@ -34,6 +35,7 @@ public class TodoService {
     public void deleteById(Integer id) {
         todoRepository.deleteById(id);
     }
+
     public List<Todo> findAllByUser(Integer id) {
         return todoRepository.findByUserId(id);
     }

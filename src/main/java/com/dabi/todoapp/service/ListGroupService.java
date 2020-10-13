@@ -8,12 +8,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("ISchoolGroupService")
+@Service("IListGroupService")
 public class ListGroupService {
 
     @Autowired
     private ListGroupRepository listGroupRepository;
-
 
     public List<ListGroup> findAll() {
         return listGroupRepository.findAll();
@@ -24,10 +23,13 @@ public class ListGroupService {
     }
 
     public List<Todo> findTodosByGroup(Integer id) {
-        //TODO: try catch / check if present
         return listGroupRepository.findById(id).get().getTodos();
     }
+
     public void deleteById(Integer id) {
         listGroupRepository.deleteById(id);
+    }
+
+    public List<ListGroup> findAllByUser(Integer id) { return listGroupRepository.findByUserId(id);
     }
 }

@@ -1,5 +1,6 @@
 package com.dabi.todoapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,8 +12,9 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-//@Table(name = "todos")
 public class Todo {
+
+    private String description;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +23,7 @@ public class Todo {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    private String description;
-
-//	private Date targetDate;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private ListGroup listGroup;
 }

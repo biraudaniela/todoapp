@@ -3,6 +3,7 @@ package com.dabi.todoapp.controller;
 import com.dabi.todoapp.model.Todo;
 import com.dabi.todoapp.model.User;
 import com.dabi.todoapp.repository.UserRepository;
+import com.dabi.todoapp.service.ListGroupService;
 import com.dabi.todoapp.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,6 +22,10 @@ public class TodoController {
 
     @Autowired
     private TodoService todoService;
+
+    @Autowired
+    private ListGroupService listGroupService;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -28,14 +33,19 @@ public class TodoController {
     public String showAllTodos(Model model, Principal principal, Authentication authentication) {
         System.out.println(principal.getName());
         System.out.println(authentication.getName());
+
         User user = userRepository.findByUsername(principal.getName()).get();
+
         List<Todo> todos = todoService.findAllByUser(user.getUserId());
+
         model.addAttribute("todos", todos);
+
         return "todo/showalltodos";
     }
 
     @GetMapping("/addtodo")
     public String addTodo(Model model) {
+        model.addAttribute("listgroups", listGroupService.findAll());
         model.addAttribute("todo", new Todo());
         return "todo/addtodo";
     }
@@ -52,7 +62,7 @@ public class TodoController {
     public String editTodo(Model model, @PathVariable Integer id) {
         Todo todo = todoService.findById(id);
         model.addAttribute("todo", todo); // initial bind with the form, to say to the webpage
-        //model.addAttribute("todos", todoService.findAll());
+        model.addAttribute("listgroups", listGroupService.findAll());
         return "todo/edittodo";
     }
 
