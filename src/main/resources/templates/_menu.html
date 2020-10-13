@@ -1,10 +1,22 @@
+<!--<nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">-->
+<!--    <div class="nav-wrapper cyan darken-4">-->
+<!--        <a href="#" class="brand-logo">ToDo List</a>-->
+<!--        <ul id="nav-mobile" class="right hide-on-med-and-down">-->
+<!--            <li><a  th:href="@{/}">Home<i class="material-icons right">home</i></a></li>-->
+<!--            <li><a th:href="@{/login}">Login<i class="material-icons right">face</i></a></li>-->
+<!--            <li><a th:href="@{/showalltodos}">Todo's<i class="material-icons right">alarm_on</i></a></li>-->
+<!--            <li><a th:href="@{/logout}">Logout<i class="material-icons right">clear</i></a></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
 <nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
     <div class="nav-wrapper cyan darken-4">
         <a href="#" class="brand-logo">ToDo List</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a  th:href="@{/}">Home<i class="material-icons right">home</i></a></li>
             <li><a th:href="@{/login}">Login<i class="material-icons right">face</i></a></li>
-            <li><a th:href="@{/showalltodos}">Todo's<i class="material-icons right">alarm_on</i></a></li>
+            <li><a th:href="@{/listtodo}">All lists<i class="material-icons right">event_note</i></a></li>
+            <li><a th:href="@{/showalltodos}">All todos<i class="material-icons right">check_circle</i></a></li>
             <li><a th:href="@{/logout}">Logout<i class="material-icons right">clear</i></a></li>
         </ul>
     </div>
