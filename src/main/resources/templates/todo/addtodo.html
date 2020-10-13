@@ -10,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <nav th:insert="_menu.html::menu_nav"></nav>
+    <script>
+    $(document).ready(function() {
+    $('select').formSelect();
+    });
+    </script>
     <style>
 body {
   background-image: url('images/blue.jpg');
@@ -18,41 +23,30 @@ body {
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="form">
-        <span class="white-text"/>
-        <div class="row">
-            <form class="col s12" th:action="@{/addtodo}" th:object="${todo}" method="post">
-                <h2>Add todo</h2>
-                <!--                <p>Please fill in this form to create a TODO.</p>-->
-                <!--                <hr>-->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <label for="description"><b>Description</b></label>
-                        <input th:field="*{description}" id="description" type="text"
-                               required>
-
-                    </div>
+<div class="row">
+    <form class="col s12" th:action="@{/addtodo}" th:object="${todo}" method="post">
+        <div class="container">
+            <span class="white-text"/>
+            <h2>Add todo</h2>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="description"><b>Description</b></label>
+                    <input th:field="*{description}" id="description" type="text" required>
                 </div>
-                <!--                <div class="row">-->
-                <!--                    <div class="input-field col s12">-->
-                <!--                        <input th:field="*{targetDate}" id="target_date" type="date" pattern="dd-MM-yyyy" required>-->
-                <!--                        <label for="target_date"><b>Target Date</b></label>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="row">-->
-                <!--                    <div class="input-field col s12">-->
-                <!--                        <select id="list_group" th:field="*{listGroup.groupId}">-->
-                <!--                            <option th:each="l: ${listgroups}" th:value="${l.groupId}"-->
-                <!--                                    th:text="${l.groupName}"/>-->
-                <!--                        </select>-->
-                <!--                        <label for="list_group"><b>Chose a list</b></label>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <button type="submit" class="waves-effect waves-light btn-small">Add</button>
-            </form>
-        </div>
-    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="list_group" th:field="*{listGroup.groupId}">
+                        <option th:each="l: ${listgroups}" th:value="${l.groupId}"
+                                th:text="${l.groupName}"/>
+                    </select>
+                    <label for="list_group"><b>Choose a list</b></label>
+                </div>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn-small">Add</button>
+        </div> </form>
+</div>
 </div>
 </body>
 </html>
+
