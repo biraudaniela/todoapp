@@ -1,7 +1,4 @@
 package com.dabi.todoapp.config;
-
-
-
 import com.dabi.todoapp.model.PendingUser;
 import com.dabi.todoapp.model.User;
 import com.dabi.todoapp.repository.PendingUserRepository;
