@@ -70,8 +70,12 @@ public class TodoController {
     @PostMapping("/edittodo/{id}")
     public String editTodo(@ModelAttribute Todo todo, @PathVariable Integer id) {
         System.out.println(todo);
-        todoService.deleteById(id);
-        todoService.save(todo); // save it again. SAVE acts as UPDATE
+        Todo databaseTodo = todoService.findById(id);
+        databaseTodo.setDescription(todo.getDescription());
+
+
+//        todoService.deleteById(id);
+        todoService.save(databaseTodo); // save it again. SAVE acts as UPDATE
         return "redirect:/showalltodos";
     }
 
