@@ -60,10 +60,11 @@ public class TodoController {
     }
 
     @GetMapping("/edittodo/{id}")
-    public String editTodo(Model model, @PathVariable Integer id) {
+    public String editTodo(Model model, @PathVariable Integer id, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName()).get();
         Todo todo = todoService.findById(id);
         model.addAttribute("todo", todo); // initial bind with the form, to say to the webpage
-        model.addAttribute("listgroups", listGroupService.findAll());
+        model.addAttribute("listgroups", listGroupService.findAllByUser(user.getUserId()));
         return "todo/edittodo";
     }
 
