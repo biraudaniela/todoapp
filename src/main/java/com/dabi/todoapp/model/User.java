@@ -15,10 +15,10 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // start from 1  on each table
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
-    private String username; //nickname
+    private String username;
     private String emailAddress;
 
     private String password;

@@ -1,7 +1,6 @@
 package com.dabi.todoapp.controller;
 
 import com.dabi.todoapp.model.ListGroup;
-import com.dabi.todoapp.model.Todo;
 import com.dabi.todoapp.model.User;
 import com.dabi.todoapp.repository.UserRepository;
 import com.dabi.todoapp.service.ListGroupService;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class ListGroupController {
@@ -42,9 +41,7 @@ public class ListGroupController {
 
     @GetMapping("/addlistgroup")
     public String addListGroup(Model model) {
-        model.addAttribute("listgroup", new ListGroup()); // initial bind with the form, to say to the webpage
-        // what is the type of student th:object
-
+        model.addAttribute("listgroup", new ListGroup());
         return "todo/addlistgroup";
     }
 

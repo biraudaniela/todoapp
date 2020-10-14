@@ -32,10 +32,5 @@ public class TodoappApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		try {
-//			todoRepository.deleteById(1);
-//		} catch (Exception ex) {
-//
-//		}
 	}
 }

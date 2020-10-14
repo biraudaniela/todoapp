@@ -20,8 +20,6 @@ import java.util.Optional;
 @Controller
 public class RegisterController {
 
-    // TODO: create user service
-
     @Autowired
     private UserRepository userRepository;
 
@@ -38,7 +36,6 @@ public class RegisterController {
     public String registerUser() {
         return "security/register";
     }
-
 
     @Bean
     public PasswordEncoder encoder() {
