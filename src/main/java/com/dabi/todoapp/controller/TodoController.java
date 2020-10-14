@@ -44,8 +44,9 @@ public class TodoController {
     }
 
     @GetMapping("/addtodo")
-    public String addTodo(Model model) {
-        model.addAttribute("listgroups", listGroupService.findAll());
+    public String addTodo(Model model, Principal principal) {
+        User user = userRepository.findByUsername(principal.getName()).get();
+        model.addAttribute("listgroups", listGroupService.findAllByUser(user.getUserId()));
         model.addAttribute("todo", new Todo());
         return "todo/addtodo";
     }
